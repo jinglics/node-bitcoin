@@ -1,5 +1,5 @@
-# Dockerfile for running node-bitcoin tests
-FROM freewil/bitcoin-testnet-box
+# Dockerfile for running node-litecoin tests
+FROM freewil/litecoin-testnet-box
 MAINTAINER Sean Lavine <lavis88@gmail.com>
 
 # install node.js
@@ -9,12 +9,12 @@ RUN curl --silent --location https://deb.nodesource.com/setup_0.12 | bash -
 RUN apt-get install --yes nodejs
 
 # set permissions for tester user on project
-ADD . /home/tester/node-bitcoin
-RUN chown --recursive tester:tester /home/tester/node-bitcoin
+ADD . /home/tester/node-litecoin
+RUN chown --recursive tester:tester /home/tester/node-litecoin
 
 # install module dependencies
 USER tester
-WORKDIR /home/tester/node-bitcoin
+WORKDIR /home/tester/node-litecoin
 RUN npm install
 
 # run test suite
